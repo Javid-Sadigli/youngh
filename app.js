@@ -14,6 +14,8 @@ const UserController = require('./controllers/user');
 
 // Routes
 const UserRouter = require('./routes/user');
+const AuthRouter = require('./routes/auth');
+const { Console } = require('console');
 
 const app = express();
 const store = new mongoddbSessionStore({
@@ -34,6 +36,15 @@ app.use(session({
     saveUninitialized : false, 
     store : store
 })); 
+
+
+app.use(ConsoleController.LOG_Request); 
+
+/* Start handling */
+app.use(AuthRouter); 
+/* End handling */ 
+
+app.use(ConsoleController.LOG_Not_Found); 
 
 // Connect to database and start server
 mongoose.connect(variables.DATABASE_URI).then(function(result)
