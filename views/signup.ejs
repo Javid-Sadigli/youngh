@@ -8,24 +8,24 @@
 <div class="container">
     <div class="main">
         <h1>Sign Up</h1>
-                <form action="">
+                <form action="/signup" method="post">
             <label for="first">
                 Full Name:
             </label>
-            <input type="text" placeholder="Enter Your Full Name" required>
+            <input name="username" type="text" placeholder="Enter Your Full Name" required>
             <label for="second">
                 Email:
             </label>
-            <input type="email" placeholder="Enter Your Email Adress"required>
+            <input name="email" type="email" placeholder="Enter Your Email Adress" required>
             <label for="third">
                 Create password:
             </label>
-            <input type="password" placeholder=" Enter Password" required id="password" name="password">
+            <input name="password" type="password" placeholder=" Enter Password" required id="password" name="password">
           <label for="fourth">
             Confirm Password:
           </label>
-          <input type="password" placeholder=" Enter Password" required id="password" name="password" >
-
+          <input name="confirmPassword" type="password" placeholder=" Enter Password" required id="password" name="password" >
+          
           <div class="wrap">
             <button type="submit" onclick="solve()">
               <b>Submit</b> 
