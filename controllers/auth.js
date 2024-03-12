@@ -1,7 +1,5 @@
 const User = require('../models/user');
 
-// Javid test 1
-
 module.exports.GET_Sign_In = (req, res, next) => {
     if(!req.loggedIn)
     {

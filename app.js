@@ -1,7 +1,5 @@
 const variables = require('./variables');
 
-// Javid test 2
-
 // Modules 
 const express = require('express');
 const mongoose = require('mongoose');
