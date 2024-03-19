@@ -12,20 +12,12 @@ body {
 
 .navbar{
     
-    background-color :rgba(0, 59, 186, 0.8);
+    background-color:red;
     box-sizing: border-box;
     overflow: hidden;
-    width: 100%;
-   
-   
-    
-    
-    
-   
-
-    
-
-    
+    min-width: 100%;
+    position: fixed;
+    z-index: 1000;
 }
 ul{
     top: 0;

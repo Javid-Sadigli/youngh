@@ -1,3 +1,4 @@
+
 .container
 {
 
@@ -7,6 +8,9 @@
   justify-content: center;
    font-family: sans-serif; 
    height: 100vh;
+  
+  
+
   
 
 
@@ -20,8 +24,7 @@
   box-shadow: 0 0 20px rgba(0, 59, 186, 0.8) ; 
   padding: 10px 20px; 
   transition: transform 0.2s; 
-  width: 350px;
-  margin: 50px;
+ 
  
   
   
@@ -127,14 +130,7 @@ p{
   
 }
 
-.sign-in-up-with .with-in a:hover{
-  background:transparent;
-}
-.sign-in-up-with .with-in a{
-  width: 20px;
-  height: 20px;
-  background:transparent
-}
+
 
 
 
