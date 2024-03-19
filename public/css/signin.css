@@ -1,4 +1,6 @@
 
+
+
 .container
 {
 
@@ -7,24 +9,22 @@
   align-items: center;
   justify-content: center;
    font-family: sans-serif; 
-   height: 100vh;
-  
-  
-
-  
-
-
+   position:relative;
+   top: 10%;  
+   
+ 
 }
 
 .main { 
 
 
-  background-color: rgba(0, 59, 186, 0.8); 
+  background-color:rgba(0, 59, 186, 0.8); 
   border-radius: 15px; 
   box-shadow: 0 0 20px rgba(0, 59, 186, 0.8) ; 
   padding: 10px 20px; 
   transition: transform 0.2s; 
- 
+ position: static   ;
+  
  
   
   

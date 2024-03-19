@@ -3,21 +3,22 @@
 font-family: "special"  ,sans-serif;
 }
 
-body { 
+html,body { 
     margin: 0;
-   
+        height: 100%;
+        width: 100%;
 
-   
-} 
+
+  } 
 
 .navbar{
     
-    background-color:red;
+    background-color:rgba(0, 59, 186, 0.8);
     box-sizing: border-box;
     overflow: hidden;
-    min-width: 100%;
-    position: fixed;
-    z-index: 1000;
+    position:static;
+    width: 100%;
+   
 }
 ul{
     top: 0;
@@ -80,9 +81,7 @@ li  a.devide,li a.right-up,a.right-in{
 
 }
 
-li a.devide{
-    background:transparent ;
-}
+
 
 
 li a.left{
