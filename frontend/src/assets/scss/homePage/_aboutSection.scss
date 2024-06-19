@@ -1,0 +1,58 @@
+.about-section {
+  padding: 100px 0 0;
+  background-color: #E5E5E5;
+
+  .about-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 100px;
+    width: 100%;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 50px;
+      @media (max-width: 1000px) {
+        padding: 0 10px;
+      }
+      .card {
+        width: 300px;
+        position: relative;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        margin-top: -30px; 
+        padding: 45px 25px 25px;
+        text-align: center;
+        gap: 30px;
+        margin-bottom: 60px;
+        h3{
+          color: #37393F;
+          font-size: 20px;
+          font-family: "Poppins", sans-serif;
+        }
+        p{
+          color: #7D7D7D;
+          font-size: 16px;
+          line-height: 24px;
+          font-family: "Inter", sans-serif;
+        }
+        img {
+          width: 60px;
+          position: absolute;
+          top: -30px;
+        }
+        a{
+          margin-top: 15px;
+          font-family: "Inter", sans-serif;
+          color: #6B77E5;
+        }
+      }
+    }
+  }
+}

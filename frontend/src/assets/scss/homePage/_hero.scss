@@ -1,0 +1,81 @@
+.hero-component{
+  height: 100vh;
+  .container{
+    justify-content: center;
+    align-items: center;
+    .hero-content{
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 140px;
+      @media (max-width: 1200px) {
+        padding: 0 100px;
+      }
+      @media (max-width: 1000px) {
+        padding: 0;
+      }
+      .hero-info{
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        z-index: 10;
+        label{
+          font-weight: 600;
+          color: #2A4897;
+          font-size: 45px;
+          font-family: "Poppins", sans-serif;
+          @media (max-width: 1200px) {
+            font-size: 35px;
+          }
+          @media (max-width: 768px) {
+            font-size: 28px;
+          }
+        }
+        img{
+          margin-left: 10px;
+          width: 85px;
+          user-select: none; 
+          @media (max-width: 1200px) {
+            width: 50px;
+          }
+          @media (max-width: 768px) {
+            width: 40px;
+          }
+        }
+      }
+      .hero-search{
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 20px;
+        border: #6F6F6F 1px solid;
+        padding: 4px;
+        input{
+          font-family: "Roboto", sans-serif;
+          padding: 0 10px;
+          font-size: 16px;
+          border: none;
+          outline: none;
+          width: 100%;
+          font-weight: 400;
+          background-color: transparent;
+        }
+        button{
+          border: none;
+          background-color: #2A4897;
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          img{
+            width: 16px;
+            height: 16px;
+            user-select: none; 
+          }
+        }
+      }
+    }
+  }
+}
