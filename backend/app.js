@@ -26,3 +26,7 @@ mongoose.connect(variables.DATABASE_URI).then((result) => {
         console.log(`\n\nServer succesfully started on port ${variables.port}.\n`);
     });     
 });
+
+
+
+
