@@ -31,17 +31,19 @@
     }
   }
   .header-bottom{
-    height: 80px;
+    // height: 80px;
     padding: 0 140px;
     background-color: white;
     margin-top: 40px;
+    width: 100%;
+    position: fixed;
     // border-bottom: 1px solid gray;
     @media (max-width: 1200px) {
       padding: 0 100px;
     }
     @media (max-width: 1000px) {
       padding: 0;
-      height: 60px;
+      // height: 60px;
     }
     .container{
       height: 100%;
@@ -51,6 +53,7 @@
         color: #2A4897;
         font-weight: 700;
         font-size: 50px;
+        margin-top: 5px;
         cursor: pointer;
         user-select: none; 
         @media (max-width: 1000px) {
