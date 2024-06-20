@@ -5,4 +5,3 @@ module.exports = {
     port : process.env.PORT || 5000, 
     mainDir : path.dirname(require.main.filename)
 };
-
