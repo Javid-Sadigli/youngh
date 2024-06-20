@@ -28,8 +28,7 @@ const RegisterPage = () => {
         alert('User registered successfully!');
       }
     } catch (error) {
-      console.error('Error during registration:', error);
-      alert('error');
+      console.log(error);
     }
   };
   

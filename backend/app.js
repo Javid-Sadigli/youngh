@@ -28,4 +28,3 @@ mongoose.connect(variables.DATABASE_URI).then((result) => {
 
 
 
-
