@@ -14,6 +14,10 @@ const MentorSchema = new Schema({
     password : {
         type : String, 
         required : true
+    },
+    description : {
+        type : Text,
+        required : true
     }
 }); 
 

@@ -12,12 +12,11 @@ const server = http.createServer(app);
 // Routes 
 const authRouter = require('./routes/auth'); 
 
-
 // Module middlewares
 app.use(bodyParser.urlencoded({extended : false}));
 
 /* Start handling */
-app.use('/auth', authRouter);
+app.use('/api/auth', authRouter);
 /* End handling */
 
 // Listening server 
