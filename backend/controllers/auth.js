@@ -1,145 +1,147 @@
 // Models 
-const Mentor = require('../models/mentor'); 
-const Mentee = require('../models/mentee');
+const User = require('../models/user');
 
 module.exports = {
     POST_Register : (req, res, next) => {
         const userType = req.query.user_type;
+        let responseSent = false;
+
+        switch (userType) 
+        {
+            case "mentor": 
+            case "mentee" : 
+                break; 
+            default : 
+                res.json({
+                    error : "Invalid user type"
+                });
+                responseSent = true;
+                break;
+        }
 
         const username = req.body.username; 
         const email = req.body.email;
         const password =  req.body.password;
+        const description = req.body.description;
 
-        let responseSent = false;
-        
-        switch (userType) 
+        if(!responseSent)
         {
-            case "mentor":
-                const description = req.body.description;
-                Mentor.findOne({username : username }).then((mentor) => {
-                    if(!responseSent) 
-                    {
-                        if(mentor)  
-                        {
-                            res.json({
-                                message : "Username already exists"
-                            });
-                            responseSent = true;
-                        }
-                        else 
-                        {
-                            return Mentor.findOne({email : email});
-                        }
-                    }
-                }).then((mentor) => {
-                    if(!responseSent) 
-                    {
-                        if(mentor)
-                        {
-                            res.json({
-                                message : "Email already exists"
-                            }); 
-                            responseSent = true;
-                        }
-                        else 
-                        {
-                            const newMentor = new Mentor({
-                                username : username, 
-                                email : email, 
-                                password :  password, 
-                                description : description
-                            }); 
-                            return newMentor.save();
-                        }
-                    }
-                }).then((newMentor) => {
-                    if(!responseSent)
-                    {
-                        if(newMentor)
-                        {
-                            res.json({
-                                message : "Mentor created successfully", 
-                                mentor : newMentor
-                            });
-                            responseSent = true;
-                        }
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                    if(!responseSent)
-                    {
-                        res.json({
-                            error : err
-                        });
-                    }
+            if(!username)
+            {
+                res.json({
+                    error : "Username is required"
+                }); 
+            }
+            if(!email) 
+            {
+                res.json({
+                    error : "Email is required"
                 });
-                break;
-            case "mentee":
-                Mentee.findOne({username : username }).then((mentee) => {
-                    if(!responseSent)
-                    {
-                        if(mentee)
-                        {
-                            res.json({
-                                message : "Username already exists"
-                            }); 
-                            responseSent = true;
-                        }
-                        else 
-                        {
-                            return Mentee.findOne({email : email});
-                        }
-                    }
-                }).then((mentee) => {
-                    if(!responseSent)
-                    {
-                        if(mentee)
-                        {
-                            res.json({
-                                message : "Email already exists"
-                            }); 
-                            responseSent = true;
-                        }
-                        else 
-                        {
-                            const newMentee = new Mentee({
-                                username : username, 
-                                email : email, 
-                                password :   password
-                            }); 
-                            return newMentee.save();
-                        }
-                    }
-                }).then((newMentee) => {
-                    if(!responseSent)
-                    {
-                        if(newMentee)
-                        {
-                            res.json({
-                                message : "Mentee created successfully", 
-                                mentee : newMentee
-                            });
-                            responseSent = true;
-                        }
-                    }
-                }).catch((err) => {
-                    console.log(err);
-                    if(!responseSent)
-                    {
-                        res.json({
-                            error : err
-                        });
-                    }
+                responseSent = true;
+            }
+            if(!password)
+            {
+                res.json({
+                    error : "Password is required"
                 });
-                break;
-            default:
-                if(!responseSent)
+                responseSent = true;
+            }
+            if(userType == "mentor" && !description)
+            {
+                res.json({
+                    error : "Description is required for mentors"
+                });
+                responseSent = true;
+            }
+        }
+        
+        User.findOne({username : username}).then((user) => {
+            if(!responseSent) 
+            {
+                if(user)
                 {
                     res.json({
-                        message : "Invalid user type"
+                        message : "Username already exists"
                     });
+                    responseSent = true;
                 }
-                break;
-        }
+                else 
+                {
+                    return User.findOne({email : email});
+                }
+            }
+        }).then((user) => {
+            if(!responseSent)
+            {
+                if(user)
+                {
+                    res.json({
+                        message : "Email already exists"
+                    });
+                    responseSent = true;
+                }
+                else 
+                {
+                    const newUser = new User({
+                        email : email, 
+                        password :  password, 
+                        username : username, 
+                        user_type : userType, 
+                        description : description
+                    }); 
+                    return newUser.save();
+                }
+            }
+        }).then((user) => {
+            if(!responseSent) 
+            {
+                res.json({
+                    message : "User created successfully", 
+                    user : user
+                });
+                responseSent = true;
+            }
+        });
+        
+    }, 
+
+    POST_Login : (req, res, next) => {
+        const username = req.body.username; 
+        const password =  req.body.password;
+
+        let responseSent = false;
+
+        User.findOne({username : username}).then((user) => {
+            if(!responseSent)
+            {
+                if(!user)
+                {
+                    res.json({
+                        error : "User not found"
+                    });
+                    responseSent = true;
+                }
+                else 
+                {
+                    if(user.password == password) 
+                    {
+                        res.json({
+                            message : "User logged in successfully", 
+                            user : user
+                        });
+                        responseSent = true;
+                    }
+                    else 
+                    {
+                        res.json({
+                            error : "Incorrect password"
+                        });
+                        responseSent = true;
+                    }
+                }
+            }
+        });
+        
+        
     }
 }; 

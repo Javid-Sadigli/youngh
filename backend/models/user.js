@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema; 
 
-const MentorSchema = new Schema({
+const UserSchema = new Schema({
     username : {
         type : String, 
         required : true
@@ -16,9 +16,12 @@ const MentorSchema = new Schema({
         required : true
     },
     description : {
-        type : Text,
-        required : true
+        type : Text
+    }, 
+    userType : {
+        type : String, 
+        default : 'mentee'
     }
-}); 
+});
 
-module.exports = mongoose.model('Mentor', MentorSchema); 
+module.exports = mongoose.model('User', UserSchema);
