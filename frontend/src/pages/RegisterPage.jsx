@@ -4,27 +4,27 @@ import { Link } from 'react-router-dom'
 const RegisterPage = () => {
   return (
     <div className="register-page">
-      <div className="register-component">
-        <div className="logo">
-        <Link to='/home' >
+      <div className="logo">
+        <Link to='/' >
           YOUNGH
         </Link>
-        </div>  
+      </div> 
+      <div className="register-component"> 
         <h2 className='p'>Create an account</h2>
         <div className="have p">
           Already have an account? <Link className='p' to='/login'>Log in</Link>
         </div>
-        <form>
+        <form className='authform'>
           <div className="form-group">
             <label htmlFor="username" className='p'>User name</label>
             <input className='p' type="text" id="username" name="username" required />
           </div>
           <div className="form-group">
-            <label htmlFor="email p">Email address</label>
+            <label htmlFor="email " className='p' >Email address</label>
             <input className='p' type="email" id="email" name="email" required />
           </div>
           <div className="form-group">
-            <label htmlFor="password p">Password</label>
+            <label htmlFor="password" className='p'>Password</label>
             <input className='p' type="password" id="password" name="password" required />
             <small className='p'>Use 8 or more characters with a mix of letters, numbers & symbols</small>
           </div>

@@ -21,7 +21,7 @@ const Header = () => {
       </div>
       <div className="header-bottom">
         <div className="container">
-          <Link to='/home' className="logo">YOUNGH</Link>
+          <Link to='/' className="logo">YOUNGH</Link>
           <div className="auth-wrapper">
             <div className="login-btn auth-btn"><Link to='/login'>LOG IN</Link></div>
             <div className="signup-btn auth-btn"><Link to='/signup'>SIGN UP</Link></div>

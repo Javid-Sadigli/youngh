@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="logo">
-        <Link to='/home' >
+        <Link to='/' >
         YOUNGH
         </Link>
       </div>
@@ -14,7 +14,7 @@ const LoginPage = () => {
         <p className='p'>
           Don't have an accaunt? <Link className='p' to='/signup'>Create one</Link>
         </p>
-        <form>
+        <form className='authform'>
           <div className="form-group">
             <label htmlFor="email" className='p'>Email address</label>
             <input type="email" className='p' id="email" name="email" required />
