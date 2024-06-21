@@ -12,10 +12,13 @@ module.exports = {
             case "mentee" : 
                 break; 
             default : 
-                res.json({
-                    error : "Invalid user type"
-                });
-                responseSent = true;
+                if(!responseSent) 
+                {
+                    res.json({
+                        error : "Invalid user type"
+                    });
+                    responseSent = true;
+                }
                 break;
         }
 
@@ -24,35 +27,33 @@ module.exports = {
         const password =  req.body.password;
         const description = req.body.description;
 
-        if(!responseSent)
+        if(!username && !responseSent)
         {
-            if(!username)
-            {
-                res.json({
-                    error : "Username is required"
-                }); 
-            }
-            if(!email) 
-            {
-                res.json({
-                    error : "Email is required"
-                });
-                responseSent = true;
-            }
-            if(!password)
-            {
-                res.json({
-                    error : "Password is required"
-                });
-                responseSent = true;
-            }
-            if(userType == "mentor" && !description)
-            {
-                res.json({
-                    error : "Description is required for mentors"
-                });
-                responseSent = true;
-            }
+            res.json({
+                error : "Username is required"
+            }); 
+            responseSent = true;
+        }
+        if(!email && !responseSent) 
+        {
+            res.json({
+                error : "Email is required"
+            });
+            responseSent = true;
+        }
+        if(!password && !responseSent)
+        {
+            res.json({
+                error : "Password is required"
+            });
+            responseSent = true;
+        }
+        if(userType == "mentor" && !description && !responseSent)
+        {
+            res.json({
+                error : "Description is required for mentors"
+            });
+            responseSent = true;
         }
         
         User.findOne({username : username}).then((user) => {
@@ -110,6 +111,21 @@ module.exports = {
         const password =  req.body.password;
 
         let responseSent = false;
+
+        if(!username && !responseSent)
+        {
+            res.json({
+                error : "Username is required"
+            }); 
+            responseSent = true;
+        }
+        if(!password && !responseSent)
+        {
+            res.json({
+                error : "Password is required"
+            });
+            responseSent = true;
+        }
 
         User.findOne({username : username}).then((user) => {
             if(!responseSent)

@@ -5,6 +5,10 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+// Controllers 
+const consoleController = require('./controllers/console');
 
 const app = express();
 const server = http.createServer(app); 
@@ -13,10 +17,15 @@ const server = http.createServer(app);
 const authRouter = require('./routes/auth'); 
 
 // Module middlewares
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(express.json());
+app.use(cors());
 
 /* Start handling */
+app.use(consoleController.LOG_Request);
+
 app.use('/api/auth', authRouter);
+
+app.use(consoleController.LOG_Not_Found);
 /* End handling */
 
 // Listening server 
