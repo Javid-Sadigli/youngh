@@ -1,35 +1,30 @@
 import React from 'react';
-import Instagram from '../../assets/images/Insta.svg';
-import Facebook from '../../assets/images/facebook.svg';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
-const Header = () => {
+const Header = ({ position }) => {
+  const { user, logout } = useAuth();
+
   return (
-    <header className='main-header'>
-      <div className="header-top">
+    <header className='header' style={{ position: position }} >
+      <div className="container">
+        <div className="logo"><Link to='/'>YOUNGH</Link></div>
         <nav className='navigation'>
-          <div></div>
           <ul>
-            <li>
-              <img src={Instagram} alt="Instagram" />
-            </li>
-            <li>
-              <img src={Facebook} alt="Facebook" />
-            </li>
+            <li><Link to='/mentors'>Browse all Mentors</Link></li>
+            {user ? (
+              <>
+                <li>Hello, {user.username}</li>
+                <li><Link onClick={logout}>Log out</Link></li>
+              </>
+            ) : (
+              <li><Link to='/login'>Log in</Link></li>
+            )}
           </ul>
         </nav>
       </div>
-      <div className="header-bottom">
-        <div className="container">
-          <Link to='/' className="logo">YOUNGH</Link>
-          <div className="auth-wrapper">
-            <div className="login-btn auth-btn"><Link to='/login'>LOG IN</Link></div>
-            <div className="signup-btn auth-btn"><Link to='/signup'>SIGN UP</Link></div>
-          </div>
-        </div>
-      </div>
     </header>
   );
-}
+};
 
 export default Header;

@@ -9,7 +9,7 @@ import Footer from '../components/footerComponents/Footer'
 const HomePage = () => {
   return (
     <>
-        <Header/>
+        <Header position="fixed"/>
         <main>
           <HeroSection/>
           <AboutSection/>
