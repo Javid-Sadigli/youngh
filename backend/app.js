@@ -3,7 +3,6 @@ const variables = require('./variables');
 // Modules
 const express = require('express'); 
 const http = require('http');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
