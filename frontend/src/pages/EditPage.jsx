@@ -8,6 +8,7 @@ const EditPage = () => {
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
+    console.log(e.target.files);
   };
 
   const handleSubmit = async (e) => {
@@ -17,10 +18,15 @@ const EditPage = () => {
     formData.append('profile_picture', file);
 
     try {
-      const response = await axios.post
-      (`http://localhost:5000/api/user/upload/profile_picture?username=${user.username}`,
-      formData, 
-      {headers: {'Content-Type': 'multipart/form-data'}});
+      const response = await axios.post(
+        `http://localhost:5000/api/user/upload/profile_picture?username=${user.username}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
       console.log(response.data);
     } catch (error) {
@@ -32,8 +38,11 @@ const EditPage = () => {
     <div>
       <h1>Edit Profile</h1>
       <form onSubmit={handleSubmit}>
-        <input type="file" onChange={handleFileChange} />
-        <button type="submit">Upload Profile Picture</button>
+        <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange} />
+        <button type="submit">Profile Picture</button>
       </form>
     </div>
   );
