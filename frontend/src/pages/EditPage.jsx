@@ -15,7 +15,7 @@ const EditPage = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('profile_picture', file);
+    formData.append('image', file);
 
     try {
       const response = await axios.post(
