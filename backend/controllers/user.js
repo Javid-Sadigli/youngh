@@ -1,6 +1,8 @@
+// Modules
 const path = require('path');
 const sharp = require('sharp');
 
+// Controllers
 const fileUploadController = require('./fileUpload');
 
 module.exports = {
@@ -46,11 +48,7 @@ module.exports = {
                 responseSent = true;
             }
         });
-    },
-
-    GET_Mentors : (req, res, next) => {
-        const count = parseInt(req.query.count) || 9; 
-        const skip = parseInt(req.query.skip) * count || 0;
-        
     }
+
+    
 };

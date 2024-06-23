@@ -5,6 +5,7 @@ const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 
 // Controllers 
 const consoleController = require('./controllers/console');
@@ -15,7 +16,7 @@ const server = http.createServer(app);
 // Routes 
 const authRouter = require('./routes/auth'); 
 const userRouter = require('./routes/user');
-const path = require('path');
+const mentorRouter = require('./routes/mentor');
 
 // Module middlewares
 app.use(express.json());
@@ -30,6 +31,7 @@ app.use(consoleController.LOG_Request);
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
+app.use('/api/mentor', mentorRouter);
 
 app.use(consoleController.LOG_Not_Found);
 /* End handling */
