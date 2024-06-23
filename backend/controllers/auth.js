@@ -87,11 +87,20 @@ module.exports = {
                         email : email, 
                         password :  password, 
                         username : username, 
-                        user_type : userType, 
+                        userType : userType, 
                         description : description
                     }); 
                     return newUser.save();
                 }
+            }
+        }).then((user) => {
+            if(user.userType == 'mentor')
+            {
+                return user.addStars();
+            }
+            else 
+            {
+                return user; 
             }
         }).then((user) => {
             if(!responseSent) 
