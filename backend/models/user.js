@@ -41,6 +41,15 @@ const UserSchema = new Schema({
         average : {
             type : Number
         }
+    }, 
+    skills : {
+        type : [String]
+    }, 
+    jobTitle : {
+        type : String
+    }, 
+    jobCategory : {
+        type : String
     }
 });
 

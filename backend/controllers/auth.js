@@ -26,6 +26,9 @@ module.exports = {
         const email = req.body.email;
         const password =  req.body.password;
         const description = req.body.description;
+        const skills = req.body.skills;
+        const jobTitle = req.body.jobTitle;
+        const jobCategory = req.body.jobCategory;
 
         if(!username && !responseSent)
         {
@@ -52,6 +55,20 @@ module.exports = {
         {
             res.json({
                 error : "Description is required for mentors"
+            });
+            responseSent = true;
+        }
+        if(userType == "mentor" && !jobTitle && !responseSent)
+        {
+            res.json({
+                error : "Job title is required for mentors"
+            });
+            responseSent = true;
+        }
+        if(userType == "mentor" && !jobCategory && !responseSent)
+        {
+            res.json({
+                error : "Job category is required for mentors"
             });
             responseSent = true;
         }
@@ -88,7 +105,10 @@ module.exports = {
                         password :  password, 
                         username : username, 
                         userType : userType, 
-                        description : description
+                        description : description, 
+                        skills : skills, 
+                        jobTitle : jobTitle, 
+                        jobCategory : jobCategory
                     }); 
                     return newUser.save();
                 }
