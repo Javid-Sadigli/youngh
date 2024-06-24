@@ -33,9 +33,14 @@ const FilteredMentors = () => {
       <div className="mentor-cards">
         {mentors.map((mentor) => (
           <div className="mentor-card" key={mentor._id}>
-            <div className="img-container">
-              <img src={defaultimg} alt={mentor.username} className="mentor-image" />
-            </div>
+            {/* <div className="img-container"> */}
+              <img 
+                src={`http://localhost:5000/public/profile_pictures/${mentor.username}.webp`} 
+                alt={mentor.username} 
+                className="mentor-image" 
+                onError={(e) => { e.target.onerror = null; e.target.src = defaultimg; }}
+              />
+            {/* </div> */}
             <div className="mentor-data">
               <h3 className="mentor-name">{mentor.username}</h3>
               <div className="mentor-title">
