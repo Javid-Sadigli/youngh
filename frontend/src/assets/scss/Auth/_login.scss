@@ -75,6 +75,11 @@
   .form-group {
     width: 100%;
     margin-bottom: 1rem;
+    textarea{
+      min-width: 100%;
+      min-height: 80px;
+      outline-color: #3c71cf;
+    }
     label {
       font-size: 14px;
       display: block;
@@ -88,7 +93,7 @@
       font-size: 14px;
       width: 100%;
       border: 1px solid #ccc;
-      outline: none;
+      outline-color: #3c71cf;
       border-radius: 4px;
     }
     

@@ -11,9 +11,11 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: "Poppins", sans-serif;
   // font-family: 'Josefin Sans', sans-serif;
   transition: 0.2s;
+}
+body{
+  font-family: "Poppins", sans-serif;
 }
 a {
   color: inherit; 

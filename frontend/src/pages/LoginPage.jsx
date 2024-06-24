@@ -19,7 +19,7 @@ const LoginPage = () => {
         <h2 className='p'>Log in</h2>
         {error && <div className="error">{error}</div>}
         <p className='p'>
-          Don't have an account? <Link className='p' to='/signup'>Create one</Link>
+          Don't have an account? <br /><Link className='p' to='/signup'> Sign up as a mentee</Link> or <Link className='p' to='/apply'>apply to be mentor</Link>
         </p>
         <form className='authform' onSubmit={handleSubmit}>
           <div className="form-group">

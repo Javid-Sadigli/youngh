@@ -1,0 +1,111 @@
+.edit{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inter", sans-serif;
+  .profile-edit-part{
+    margin-bottom: 24px;
+    h2{
+      font-size: 1.25rem;
+      padding: 30px 0;
+    }
+    .form-wrapper{
+      min-width: 950px;
+      border-radius: 20px;
+      border: 1px solid lightgray;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      .profile-edit{
+        width: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        .img-container{
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 1px solid lightgray;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .photo-upload {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 20px;
+          .photo-container{
+            display: flex;
+            align-items: center;
+            label{
+              display: flex;
+              align-items: center;
+              margin-left: 12px;
+              padding: 10px 16px 10px 4px;
+              border-radius: 5px;
+              cursor: pointer;
+              border: 1px solid lightgray;
+              .icon{
+                margin: 0 12px;
+              }
+            }
+            .file-input {
+              display: none;
+            }
+          }
+        }
+        label{
+          font-size: 14px;
+          padding: 12px 0 4px;
+        }
+        input{
+          padding: 8px 12px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+          outline-color: #3c71cf;
+        }
+        select{
+          padding: 8px 12px;
+          border-radius: 5px;
+          border: 1px solid lightgray;
+        }
+        button{
+          background-color: #F3F4F6;
+          border: none;
+          border-radius: 5px;
+          padding: 8px 12px;
+          margin-top: 24px;
+          color: gray;
+        }
+      } 
+    }
+  }
+}
+.w100{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+.w50{
+  padding-right: 10px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+// #image{
+//   width: 100px;
+//   height: 100px;
+//   border-radius: 50%; 
+//   background-image: url(../../images/default_profile.webp);
+//   background-position: center center;
+//   background-size: cover;
+// }
