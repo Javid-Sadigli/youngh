@@ -21,16 +21,14 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       padding: 20px;
       margin: 20px;
-      .img-container{
+      .mentor-image {
         width: 180px;
         height: 180px;
-        .mentor-image {
-          border-radius: 50%;
-          width: 100%;
-        }
+        border-radius: 50%;
+        object-fit: cover;
       }
       .mentor-data {
-        margin-left: 10px;
+        margin-left: 20px;
         text-align: left;
         .mentor-name {
           font-size: 1.5em;
