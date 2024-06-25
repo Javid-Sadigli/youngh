@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 const MentorSignPage = () => {
   const { mentorFormData, handleChangeMentor, registerMentor, error } = useAuth();
 
+  // Define static arrays
   const skills = [
     "Leadership", "Product Management", "Startup", "Career", "Management",
     "Product Strategy", "Career Growth", "Software Engineering", "Product Design",
@@ -25,64 +26,69 @@ const MentorSignPage = () => {
     "Technology", "Business", "Design", "Management", "Data Science", "Marketing", "Engineering"
   ];
 
-  const [filteredSkills, setFilteredSkills] = useState(skills);
-  const [filteredJobTitles, setFilteredJobTitles] = useState(jobTitles);
-  const [filteredJobCategories, setFilteredJobCategories] = useState(jobCategories);
+  // State for selected options
+  const [filteredSkills, setFilteredSkills] = useState([]);
+  const [filteredJobTitles, setFilteredJobTitles] = useState([]);
+  const [filteredJobCategories, setFilteredJobCategories] = useState([]);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const [selectedJobTitle, setSelectedJobTitle] = useState('');
   const [selectedJobCategory, setSelectedJobCategory] = useState('');
-  const [isSkillsVisible, setSkillVisible] = useState(false);
-  const [isJobVisible, setJobVisible] = useState(false);
+  const [isSkillsVisible, setSkillsVisible] = useState(false);
+  const [isJobTitleVisible, setJobTitleVisible] = useState(false);
   const [isJobCategoryVisible, setJobCategoryVisible] = useState(false);
   const [step, setStep] = useState(1);
 
+  // Handle search in dropdown
   const handleSearch = (e, setFilteredOptions, options) => {
     const searchTerm = e.target.value.toLowerCase();
     setFilteredOptions(options.filter(option => option.toLowerCase().includes(searchTerm)));
   };
 
+  // Handle dropdown select
   const handleDropdownSelect = (fieldName, value) => {
     if (fieldName === 'skills' && !selectedSkills.includes(value)) {
       setSelectedSkills([...selectedSkills, value]);
-      setSkillVisible(false);
+      setSkillsVisible(false);
     } else if (fieldName === 'jobTitles') {
       setSelectedJobTitle(value);
-      setJobVisible(false);
+      setJobTitleVisible(false);
     } else if (fieldName === 'jobCategories') {
       setSelectedJobCategory(value);
       setJobCategoryVisible(false);
     }
   };
 
+  // Handle skill removal
   const handleRemoveSkill = (skill) => {
     setSelectedSkills(selectedSkills.filter(item => item !== skill));
   };
 
-  const handleNext = () => {
-    setStep(step + 1);
-  };
-
-  const handlePrevious = () => {
-    setStep(step - 1);
-  };
-
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const skillsString = selectedSkills.map(skill => skill.replace(/ /g, '_')).join('-');
-    const jobTitleString = selectedJobTitle.replace(/ /g, '_');
-    const jobCategoryString = selectedJobCategory.replace(/ /g, '_');
-
-    const queryParameters = `skills=${skillsString}&jobTitle=${jobTitleString}&jobCategory=${jobCategoryString}`;
-    console.log(queryParameters);
     const formData = {
       description: mentorFormData.description,
       username: mentorFormData.username,
       password: mentorFormData.password,
       email: mentorFormData.email,
+      skills: selectedSkills, // Array of selected skills
+      jobTitle: selectedJobTitle,
+      jobCategory: selectedJobCategory
     };
+    console.log(formData);
 
-    await registerMentor(formData, queryParameters);
+    await registerMentor(formData);
+  };
+
+  // Handle next step
+  const handleNext = () => {
+    setStep(step + 1);
+  };
+
+  // Handle previous step
+  const handlePrevious = () => {
+    setStep(step - 1);
   };
 
   return (
@@ -123,7 +129,7 @@ const MentorSignPage = () => {
                   type="text"
                   id="skills"
                   name="skills"
-                  onFocus={() => setSkillVisible(true)}
+                  onFocus={() => setSkillsVisible(true)}
                   onChange={(e) => handleSearch(e, setFilteredSkills, skills)}
                   autoComplete="off"
                 />
@@ -151,11 +157,11 @@ const MentorSignPage = () => {
                   type="text"
                   id="jobTitles"
                   name="jobTitles"
-                  onFocus={() => setJobVisible(true)}
+                  onFocus={() => setJobTitleVisible(true)}
                   onChange={(e) => handleSearch(e, setFilteredJobTitles, jobTitles)}
                   autoComplete="off"
                 />
-                {isJobVisible && (
+                {isJobTitleVisible && (
                   <div className="dropdown">
                     {filteredJobTitles.map((title, index) => (
                       <div key={index} className="dropdown-item" onClick={() => handleDropdownSelect('jobTitles', title)}>
@@ -165,8 +171,8 @@ const MentorSignPage = () => {
                   </div>
                 )}
                 {selectedJobTitle && (
-                  <div className="selected-jobTitle">
-                    {selectedJobTitle} <span onClick={() => setSelectedJobTitle('')}>x</span>
+                  <div className="selected-job">
+                    Selected Job Title: {selectedJobTitle}
                   </div>
                 )}
               </div>
@@ -191,8 +197,8 @@ const MentorSignPage = () => {
                   </div>
                 )}
                 {selectedJobCategory && (
-                  <div className="selected-jobCategory">
-                    {selectedJobCategory} <span onClick={() => setSelectedJobCategory('')}>x</span>
+                  <div className="selected-job">
+                    Selected Job Category: {selectedJobCategory}
                   </div>
                 )}
               </div>

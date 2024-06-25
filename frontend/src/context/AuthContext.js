@@ -75,6 +75,9 @@ const AuthProvider = ({ children }) => {
     password: '',
     email: '',
     description: '',
+    jobTitle: '',
+    jobCategory: '',
+    skills: [], 
     userType: 'mentor',
   });
 
@@ -82,10 +85,10 @@ const AuthProvider = ({ children }) => {
     setMentorFormData({ ...mentorFormData, [e.target.name]: e.target.value });
   };
 
-  const registerMentor = async (mentorFormData, queryParameters) => {
+  const registerMentor = async (formData) => {
     try {
-      const url = `http://localhost:5000/api/auth/register?userType=mentor&${queryParameters}`;
-      const response = await axios.post(url, mentorFormData);
+      const url = `http://localhost:5000/api/auth/register?userType=mentor`;
+      const response = await axios.post(url, formData);
       if (response.status === 200) {
         if (response.data.error) {
           setError(response.data.error);
