@@ -114,13 +114,16 @@ module.exports = {
                 }
             }
         }).then((user) => {
-            if(user.userType == 'mentor')
+            if(!responseSent)
             {
-                return user.addStars();
-            }
-            else 
-            {
-                return user; 
+                if(user.userType == 'mentor')
+                {
+                    return user.addStars();
+                }
+                else 
+                {
+                    return user; 
+                }   
             }
         }).then((user) => {
             if(!responseSent) 
