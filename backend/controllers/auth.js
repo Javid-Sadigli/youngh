@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
     POST_Register : (req, res, next) => {
-        const userType = req.query.user_type;
+        const userType = req.query.userType;
         let responseSent = false;
 
         switch (userType) 
