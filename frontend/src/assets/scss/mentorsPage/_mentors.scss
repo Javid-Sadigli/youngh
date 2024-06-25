@@ -1,13 +1,22 @@
 .mentorsPage {
   display: flex;
-  align-items: center;
-  padding-top: 200px;
-  padding: 150px 150px 100px;
+  padding: 150px 0 100px ;
   .filter{
     width: 20%;
     display: flex;
-    background-color: gray;
+    flex-direction: column;
     height: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    .filter-category{
+      h3{
+
+      }
+      input{
+
+      }
+    }
   }
   .mentor-cards{
     width: 80%;

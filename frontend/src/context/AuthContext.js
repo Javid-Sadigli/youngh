@@ -23,6 +23,11 @@ const AuthProvider = ({ children }) => {
 
   const [error, setError] = useState(null);
 
+  // Add these states for selected options
+  const [selectedSkills, setSelectedSkills] = useState('');
+  const [selectedJobTitles, setSelectedJobTitles] = useState('');
+  const [selectedJobCategories, setSelectedJobCategories] = useState('');
+
   useEffect(() => {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
@@ -113,7 +118,13 @@ const AuthProvider = ({ children }) => {
       registerMentor, 
       user, 
       logout, 
-      error 
+      error,
+      selectedSkills,           // Expose selectedSkills
+      setSelectedSkills,        // Function to set selectedSkills
+      selectedJobTitles,        // Expose selectedJobTitles
+      setSelectedJobTitles,     // Function to set selectedJobTitles
+      selectedJobCategories,    // Expose selectedJobCategories
+      setSelectedJobCategories // Function to set selectedJobCategories
     }}>
       {children}
     </AuthContext.Provider>

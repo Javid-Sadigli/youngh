@@ -4,7 +4,6 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
-// Ensure the 'uploads' directory exists
 const uploadDir = path.join(mainDir, 'public', 'profile_pictures');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
