@@ -57,56 +57,56 @@
 }
 
 
-.authform {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  button {
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    background: #3c71cf;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .form-group {
-    width: 100%;
-    margin-bottom: 1rem;
-    textarea{
-      min-width: 100%;
-      min-height: 80px;
-      outline-color: #3c71cf;
-    }
-    label {
-      font-size: 14px;
-      display: block;
-      margin-bottom: 0.4rem;
-      text-align: left;
-      color: #666666;
-    }
+// .authform {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   button {
+//     padding: 0.75rem;
+//     border: none;
+//     border-radius: 4px;
+//     background: #3c71cf;
+//     color: #fff;
+//     cursor: pointer;
+//     font-size: 1rem;
+//     width: 100%;
+//     margin-bottom: 1rem;
+//   }
+//   .form-group {
+//     width: 100%;
+//     margin-bottom: 1rem;
+//     textarea{
+//       min-width: 100%;
+//       min-height: 80px;
+//       outline-color: #3c71cf;
+//     }
+//     label {
+//       font-size: 14px;
+//       display: block;
+//       margin-bottom: 0.4rem;
+//       text-align: left;
+//       color: #666666;
+//     }
     
-    input {
-      padding: 0.5rem;
-      font-size: 14px;
-      width: 100%;
-      border: 1px solid #ccc;
-      outline-color: #3c71cf;
-      border-radius: 4px;
-    }
+//     input {
+//       padding: 0.5rem;
+//       font-size: 14px;
+//       width: 100%;
+//       border: 1px solid #ccc;
+//       outline-color: #3c71cf;
+//       border-radius: 4px;
+//     }
     
-    small {
-      display: block;
-      margin-top: 0.5rem;
-      color: #888;
-      text-align: left;
-      a{
-        color: black;
-        font-weight: 500;
-        text-decoration: underline;
-      }
-    }
-  }
-}
+//     small {
+//       display: block;
+//       margin-top: 0.5rem;
+//       color: #888;
+//       text-align: left;
+//       a{
+//         color: black;
+//         font-weight: 500;
+//         text-decoration: underline;
+//       }
+//     }
+//   }
+// }

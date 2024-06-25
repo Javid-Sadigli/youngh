@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
 
   const register = async () => {
     try {
-      const url = `http://localhost:5000/api/auth/register?user_type=${formData.user_type}`;
+      const url = `http://localhost:5000/api/auth/register?user_type=mentee`;
       const response = await axios.post(url, formData);
       if (response.status === 200) {
         if (response.data.error) {
@@ -82,9 +82,9 @@ const AuthProvider = ({ children }) => {
     setMentorFormData({ ...mentorFormData, [e.target.name]: e.target.value });
   };
 
-  const registerMentor = async () => {
+  const registerMentor = async (mentorFormData, queryParameters) => {
     try {
-      const url = `http://localhost:5000/api/auth/register?user_type=${mentorFormData.user_type}`;
+      const url = `http://localhost:5000/api/auth/register?user_type=mentor&${queryParameters}`;
       const response = await axios.post(url, mentorFormData);
       if (response.status === 200) {
         if (response.data.error) {
