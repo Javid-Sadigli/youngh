@@ -16,7 +16,7 @@ const FilteredMentors = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const params = {
+        const params = { 
           jobTitle: selectedJobTitles,
           jobCategory: selectedJobCategories,
           skills: selectedSkills
@@ -61,7 +61,10 @@ const FilteredMentors = () => {
                 </div>
                 <div className="mentor-rating">
                   <span className="stars">{renderStars(mentor.stars.average)}</span>
-                  <span className="reviews">({mentor.stars.average} rated by <b>0</b> people)</span>
+                  <span className="reviews">{mentor.stars.average} 
+                    rated by 
+                    {/* {people} */}
+                  </span>
                 </div>
                 <p className="mentor-description">
                   {mentor.description}

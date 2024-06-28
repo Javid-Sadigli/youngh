@@ -6,7 +6,7 @@ const Header = ({ position }) => {
   const { user, logout } = useAuth();
 
   return (
-    <header className='header' style={{ position: position }} >
+    <header className='header' style={{ position: 'fixed' }} >
       <div className="container">
         <div className="logo"><Link to='/'>YOUNGH</Link></div>
         <nav className='navigation'>

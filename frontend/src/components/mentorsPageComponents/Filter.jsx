@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { skills, jobTitles, jobCategories } from '../../data/mentorFilterData';
-import { useAuth } from '../../context/AuthContext'; 
+import { useAuth } from '../../context/AuthContext';
+import { IoIosSearch } from "react-icons/io";
 
 const Filter = () => {
-  const { 
-    selectedSkills, 
-    setSelectedSkills, 
-    selectedJobTitles, 
-    setSelectedJobTitles, 
-    selectedJobCategories, 
-    setSelectedJobCategories 
+  const {
+    selectedSkills,
+    setSelectedSkills,
+    selectedJobTitles,
+    setSelectedJobTitles,
+    selectedJobCategories,
+    setSelectedJobCategories
   } = useAuth();
 
   const [filteredSkills, setFilteredSkills] = useState([]);
@@ -20,29 +21,46 @@ const Filter = () => {
   const [showMoreJobTitles, setShowMoreJobTitles] = useState(false);
   const [showMoreJobCategories, setShowMoreJobCategories] = useState(false);
 
+  const [itemsToShow, setItemsToShow] = useState(10);
+
   useEffect(() => {
-    setFilteredSkills(skills.slice(0, 10));
-    setFilteredJobTitles(jobTitles.slice(0, 10));
-    setFilteredJobCategories(jobCategories.slice(0, 10));
+    const updateItemsToShow = () => {
+      if (window.innerWidth < 576) {
+        setItemsToShow(3);
+      } else {
+        setItemsToShow(10);
+      }
+    };
+
+    updateItemsToShow();
+    window.addEventListener('resize', updateItemsToShow);
+
+    return () => window.removeEventListener('resize', updateItemsToShow);
   }, []);
+
+  useEffect(() => {
+    setFilteredSkills(skills.slice(0, itemsToShow));
+    setFilteredJobTitles(jobTitles.slice(0, itemsToShow));
+    setFilteredJobCategories(jobCategories.slice(0, itemsToShow));
+  }, [itemsToShow]);
 
   const handleSearch = (e, setFilteredOptions, options, setSelectedOptions) => {
     const searchTerm = e.target.value.toLowerCase();
-    setFilteredOptions(options.filter(option => option.toLowerCase().includes(searchTerm)).slice(0, 10));
+    setFilteredOptions(options.filter(option => option.toLowerCase().includes(searchTerm)).slice(0, itemsToShow));
   };
 
   const handleShowMore = (category) => {
     switch (category) {
       case 'skills':
-        setFilteredSkills(skills.slice(0, filteredSkills.length + 10));
+        setFilteredSkills(skills.slice(0, filteredSkills.length + itemsToShow));
         setShowMoreSkills(true);
         break;
       case 'jobTitles':
-        setFilteredJobTitles(jobTitles.slice(0, filteredJobTitles.length + 10));
+        setFilteredJobTitles(jobTitles.slice(0, filteredJobTitles.length + itemsToShow));
         setShowMoreJobTitles(true);
         break;
       case 'jobCategories':
-        setFilteredJobCategories(jobCategories.slice(0, filteredJobCategories.length + 10));
+        setFilteredJobCategories(jobCategories.slice(0, filteredJobCategories.length + itemsToShow));
         setShowMoreJobCategories(true);
         break;
       default:
@@ -60,7 +78,7 @@ const Filter = () => {
   };
 
   const formatOption = (option) => {
-    return option.replace(/\s+/g, '_'); // Replace all spaces with underscores
+    return option.replace(/\s+/g, '_');
   };
 
   const renderCheckboxList = (category, options, selectedOptions, setSelectedOptions) => {
@@ -79,13 +97,13 @@ const Filter = () => {
             <label htmlFor={`${category}-${index}`}>{option}</label>
           </div>
         ))}
-        {category === 'skills' && !showMoreSkills && skills.length > filteredSkills.length && (
+        {category === 'skills' && skills.length > filteredSkills.length && (
           <button onClick={() => handleShowMore('skills')}>Show More</button>
         )}
-        {category === 'jobTitles' && !showMoreJobTitles && jobTitles.length > filteredJobTitles.length && (
+        {category === 'jobTitles' && jobTitles.length > filteredJobTitles.length && (
           <button onClick={() => handleShowMore('jobTitles')}>Show More</button>
         )}
-        {category === 'jobCategories' && !showMoreJobCategories && jobCategories.length > filteredJobCategories.length && (
+        {category === 'jobCategories' && jobCategories.length > filteredJobCategories.length && (
           <button onClick={() => handleShowMore('jobCategories')}>Show More</button>
         )}
       </>
@@ -96,33 +114,45 @@ const Filter = () => {
     <div className='filter'>
       <div className="filter-category">
         <h3>Skills</h3>
-        <input
-          type="text"
-          placeholder="Search for skills"
-          onChange={(e) => handleSearch(e, setFilteredSkills, skills, setSelectedSkills)}
-        />
+        <div className="input-wrapper">
+          <input
+            className='filterInput'
+            type="text"
+            placeholder="Search for skills"
+            onChange={(e) => handleSearch(e, setFilteredSkills, skills, setSelectedSkills)}
+          />
+          <IoIosSearch className='icon'/>
+        </div>
         <div className="checkbox-list">
           {renderCheckboxList('skills', filteredSkills, selectedSkills, setSelectedSkills)}
         </div>
       </div>
       <div className="filter-category">
         <h3>Job Titles</h3>
-        <input
-          type="text"
-          placeholder="Search for job titles"
-          onChange={(e) => handleSearch(e, setFilteredJobTitles, jobTitles, setSelectedJobTitles)}
-        />
+        <div className="input-wrapper">
+          <input
+            className='filterInput'
+            type="text"
+            placeholder="Search for job titles"
+            onChange={(e) => handleSearch(e, setFilteredJobTitles, jobTitles, setSelectedJobTitles)}
+          />
+          <IoIosSearch className='icon'/>
+        </div>
         <div className="checkbox-list">
           {renderCheckboxList('jobTitles', filteredJobTitles, selectedJobTitles, setSelectedJobTitles)}
         </div>
       </div>
       <div className="filter-category">
         <h3>Job Categories</h3>
-        <input
-          type="text"
-          placeholder="Search for job categories"
-          onChange={(e) => handleSearch(e, setFilteredJobCategories, jobCategories, setSelectedJobCategories)}
-        />
+        <div className="input-wrapper">
+          <input
+            className='filterInput'
+            type="text"
+            placeholder="Search for job categories"
+            onChange={(e) => handleSearch(e, setFilteredJobCategories, jobCategories, setSelectedJobCategories)}
+          />
+          <IoIosSearch className='icon'/>
+        </div>
         <div className="checkbox-list">
           {renderCheckboxList('jobCategories', filteredJobCategories, selectedJobCategories, setSelectedJobCategories)}
         </div>

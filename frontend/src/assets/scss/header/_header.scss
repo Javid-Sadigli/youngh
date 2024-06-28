@@ -1,16 +1,15 @@
 .header{
   display: flex;
-  background: #fff;
+  background-color: #0088cc;
   width: 100%;
   padding: 5px 0;
   z-index: 1000;
-  border-bottom: 1px solid gray;
   .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     .logo{
-      color: #3c71cf;
+      color: #fff;
       font-weight: 600;
       font-size: 40px;
       cursor: pointer;
@@ -22,9 +21,11 @@
         li{
           cursor: pointer;
           color: #fff;
-          background: #3c71cf;
           padding: 10px;
-          border-radius: 8px;
+          border-radius: 3px;
+          &:hover{
+            background-color: #0056b3;
+          }
           a{
             display: block;
             width: 100%;
