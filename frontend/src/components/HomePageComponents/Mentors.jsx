@@ -1,6 +1,7 @@
 import React from 'react';
 import MentorsData from '../../data/MentorsData';
 import briefcase from '../../assets/images/briefcase.svg';
+import { Link } from 'react-router-dom';
 
 const Mentors = () => {
   return (
@@ -26,7 +27,7 @@ const Mentors = () => {
             </div>
           ))}
         </div>
-        <button className='blueBtn'>EXPLORE ALL</button>
+        <button className='blueBtn'><Link to='/mentors'>EXPLORE ALL</Link></button>
       </div>
     </section>
   );
