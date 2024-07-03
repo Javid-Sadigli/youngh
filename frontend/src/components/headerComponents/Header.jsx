@@ -14,7 +14,7 @@ const Header = ({ position }) => {
             <li><Link to='/mentors'>Browse all Mentors</Link></li>
             {user ? (
               <>
-                <li><Link to='/edit'>Edit</Link></li>
+                <li><Link to='/edit'>Edit Profile</Link></li>
                 <li>Hello, {user.username}</li>
                 <li><Link onClick={logout}>Log out</Link></li>
               </>

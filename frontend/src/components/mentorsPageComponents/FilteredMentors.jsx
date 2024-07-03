@@ -61,9 +61,7 @@ const FilteredMentors = () => {
                 </div>
                 <div className="mentor-rating">
                   <span className="stars">{renderStars(mentor.stars.average)}</span>
-                  <span className="reviews">{mentor.stars.average} 
-                    rated by 
-                    {/* {people} */}
+                  <span className="reviews">{mentor.stars.average} rated by {mentor.stars[1] + mentor.stars[2] + mentor.stars[3] + mentor.stars[4] + mentor.stars[5]}
                   </span>
                 </div>
                 <p className="mentor-description">
