@@ -5,28 +5,29 @@ import card3 from '../assets/images/cards/card3.svg';
 const CardData = [
   {
     id: 1,
-    imgSrc: card1,
-    title: 'Send Mentor Request',
-    description: 'Leverage agile frameworks provide high level overviews value proposition.',
+    imgSrc: card2,
+    title: 'Sign In',
+    description: 'Sign in to connect with our mentors',
     linkText: 'Testimonials',
-    linkUrl: '/'
+    linkUrl: '/login'
   },
   {
     id: 2,
-    imgSrc: card2,
-    title: 'Sign Up',
-    description: 'Leverage agile frameworks provide high level overviews value proposition.',
+    imgSrc: card1,
+    title: 'Explore mentors',
+    description: 'Find mentors with different skills, jobs and so on.',
     linkText: 'Testimonials',
     linkUrl: '/'
   },
-  {
-    id: 3,
-    imgSrc: card3,
-    title: 'Online Meet',
-    description: 'Leverage agile frameworks provide high level overviews value proposition.',
-    linkText: 'Testimonials',
-    linkUrl: '/'
-  }
+  
+  // {
+  //   id: 3,
+  //   imgSrc: card3,
+  //   title: 'Online Meet',
+  //   description: 'Leverage agile frameworks provide high level overviews value proposition.',
+  //   linkText: 'Testimonials',
+  //   linkUrl: '/'
+  // }
 ];
 
 export default CardData;

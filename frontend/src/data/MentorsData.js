@@ -5,19 +5,19 @@ import mentor3 from '../assets/images/mentors/mentor1.png';
 const MentorsData = [
   {
     id: 1,
-    imgSrc: mentor1,
-    name: 'Zakir Bagirov',
+    imgSrc: "http://localhost:5000/public/profile_pictures/Javid%20Sadigli.webp",
+    name: 'Javid Sadigli',
     payment: '$20/session',
-    company: 'Socar, Azerbaijan',
-    description: 'Career choice, Advice on top uni. in Netherlands, Relocation to Netherlands, Guidance in various stages of interview',
+    company: 'Youngh',
+    description: 'I am Javid Sadigli. I am Software Engineer. I am working with ExpressJS framework, and also, I am learning Java programming language.',
   },
   {
     id: 2,
-    imgSrc: mentor2,
-    name: 'Mirjalal Seyidli',
+    imgSrc: "http://localhost:5000/public/profile_pictures/Kamran%20Heydarov.webp",
+    name: 'Kamran Heydarov',
     payment: '$20/session',
-    company: 'Socar, Azerbaijan',
-    description: 'Career choice, Advice on top uni. in Netherlands, Relocation to Netherlands, Guidance in various stages of interview',
+    company: 'Youngh',
+    description: 'Kamran Heydarov; work and manage team, work under pressure; CEO & Founder. I am last year engineering student and I like reading, walking, and play piano.',
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const MentorsData = [
     name: 'Rafi Mammadov',
     payment: '$20/session',
     company: 'Socar, Azerbaijan',
-    description: 'Career choice, Advice on top uni. in Netherlands, Relocation to Netherlands, Guidance in various stages of interview',
+    description: 'Dedicated Front-End Web Developer with experience in building responsive web applications using React, HTML, CSS, and JavaScript.',
   },
 ];
 

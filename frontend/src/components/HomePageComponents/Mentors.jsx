@@ -28,6 +28,7 @@ const Mentors = () => {
           ))}
         </div>
         <button className='blueBtn'><Link to='/mentors'>EXPLORE ALL</Link></button>
+        <br />
       </div>
     </section>
   );

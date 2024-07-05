@@ -14,7 +14,7 @@ const HomePage = () => {
           <HeroSection/>
           <AboutSection/>
           <Mentors/>
-          <TopMentors/>
+          {/* <TopMentors/> */}
         </main>
         <Footer/>
     </>
