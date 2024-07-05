@@ -17,7 +17,7 @@ const CardData = [
     title: 'Explore mentors',
     description: 'Find mentors with different skills, jobs and so on.',
     linkText: 'Testimonials',
-    linkUrl: '/'
+    linkUrl: '/mentors'
   },
   
   // {
