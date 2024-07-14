@@ -35,11 +35,11 @@ const RegisterPage = () => {
             <input className='p' type="password" id="password" name="password" required onChange={handleChange} value={formData.password} autoComplete="new-password" />
             <small className='p'>Use 8 or more characters with a mix of letters, numbers & symbols</small>
           </div>
-          <div className="terms">
+          {/* <div className="terms">
             <p className='p'>
               By creating an account, you agree to our <Link className='p' to="/terms">Terms of use</Link> and <Link className='p' to="/privacy">Privacy Policy</Link>
             </p>
-          </div>
+          </div> */}
           <button className='p' type="submit">Create an account</button>
         </form>
       </div>
