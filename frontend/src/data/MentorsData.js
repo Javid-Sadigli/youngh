@@ -21,8 +21,8 @@ const MentorsData = [
   },
   {
     id: 3,
-    imgSrc: mentor3,
-    name: 'Rafi Mammadov',
+    imgSrc: "http://localhost:5000/public/profile_pictures/Hamza%20Nuruzada.webp",
+    name: 'Hamza Nuruzada',
     payment: '$20/session',
     company: 'Socar, Azerbaijan',
     description: 'Dedicated Front-End Web Developer with experience in building responsive web applications using React, HTML, CSS, and JavaScript.',
