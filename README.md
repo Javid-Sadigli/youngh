@@ -54,7 +54,7 @@ There is 2 part of this project : `frontend` and `backend`. You may see these na
 Congratulations, you have successfully installed the dependencies and run the project.
 
 ## Using of the project
-So, as you have run the project, you can see it now. Go to the <a href="http://localhost:3000">http://localhost:3000</a> in your browser. Now you can enjoy the project :) You can : 
+So, as you have run the project, you can see it now. Go to the <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> in your browser. Now you can enjoy the project :) You can : 
 * Sign up as mentee, 
 * Apply to be a mentor, 
 * Log into your account,
