@@ -1,7 +1,7 @@
 # YOUNGH project
 ![](./readme_images/youngh_cover.jpg)
 
-YOUNGH is a website-based video conferencing platform where you can enroll as either a mentor or a mentee and mentrees pay to schedule a meeting with a mentor and pick a date for the session.
+YOUNGH is a website-based platform where you can enroll as either a mentor or a mentee and mentrees pay to schedule a meeting with a mentor and pick a date for the session.
 
 ## Table of Contents
 
